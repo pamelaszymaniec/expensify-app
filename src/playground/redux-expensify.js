@@ -1,6 +1,31 @@
 import {createStore, combineReducers} from 'redux';
+import uuid from 'uuid';
 
 //ADD_EXPENSE
+
+const addExpense = (
+    {
+        description = '',
+        note = '',
+        amount = 0,
+        createdAt = 0
+    } = {}
+) => ({
+    type: 'ADD_EXPENSE',
+    expense: {
+        id: uuid(),
+        description,
+        note,
+        amount,
+        createdAt
+    }
+});
+//REMOVE_EXPENSE
+const removeExpense = ({id} = {}) => ({
+    type: 'REMOVE_EXPENSE',
+    id
+});
+
 //REMOVE_EXPENSE
 //EDIT_EXPENSE
 //SET_TEXT_FILTER
@@ -12,7 +37,18 @@ import {createStore, combineReducers} from 'redux';
 //Expenses Reducer
 const expensesReducerDefaultState = [];
 const expensesReducer = (state = expensesReducerDefaultState, action) => {
+
     switch (action.type) {
+        case 'ADD_EXPENSE':
+            return [
+                ...state,
+                action.expense
+            ];
+        case 'REMOVE_EXPENSE':
+            return state.filter(({ id }) => id !== action.id);
+            // Metoda filter wykonuje dostarczoną funkcję callback dla
+        // każdego elementu tablicy, tworząc nową tablicę z wszystkich
+        // tych elementów, dla których funkcja callback zwróciła wartość true. Wynikowa tablica jest zwarta; wartości, które nie przechodzą testu funkcji callback, są zwyczajnie pomijane i nie są przypisywane do indeksów nowej tablicy.
         default:
             return state;
     }
@@ -41,7 +77,18 @@ const store = createStore(
         filters: filtersReducer
     })
 );
-console.log(store.getState());
+
+store.subscribe(() => {
+    console.log(store.getState())
+});
+
+const expenseOne = store.dispatch(addExpense({description: 'Rent', amount: 100}));
+const expenseTwo = store.dispatch(addExpense({description: 'Coffe', amount: 30}));
+
+console.log(expenseOne);
+console.log(expenseTwo);
+
+store.dispatch(removeExpense({id: expenseOne.expense.id}));
 
 
 const demoState = {
