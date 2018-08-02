@@ -1,5 +1,8 @@
 # expensify-app
-Expensify App - expense manager - using React, React Router.
+Expensify App - expense manager.
+Part of the The Complete React Web Developer Course 2.0.
+
+Built with React v16, Firebase and moment.js
 
 Requirements:
 - git
