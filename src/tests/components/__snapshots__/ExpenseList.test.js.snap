@@ -5,7 +5,6 @@ exports[`should render ExpenseList with empty message 1`] = `
   <p>
     No expenses
   </p>
-  0
 </div>
 `;
 
@@ -35,6 +34,5 @@ exports[`should render ExpenseList with expenses 1`] = `
     key="3"
     note=""
   />
-  3
 </div>
 `;

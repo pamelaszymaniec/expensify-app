@@ -12,7 +12,7 @@ export const ExpenseList = (props) => (
       }
 
 
-      {props.expenses.length}
+      {/*{props.expenses.length}*/}
   </div>
 );
 const mapStateToProps = (state) => {
