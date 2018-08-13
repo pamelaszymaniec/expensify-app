@@ -1,0 +1,15 @@
+.button {
+  background: $dodger-blue;
+  border: none;
+  color: white;
+  display: inline-block;
+  padding: $m-size;
+  font-weight: 300;
+  line-height: 1;
+  font-size: $font-size;
+  text-decoration: none;
+}
+
+.button--link {
+  background: none;
+}
