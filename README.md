@@ -14,13 +14,13 @@ A web app to manage expenses, based on a course from [Udemy](https://www.udemy.c
 - Firebase Authentication
 - Testing
 
-##Requirements:
+## Requirements:
 - [Node](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/)
 - A [Firebase](https://firebase.google.com/) account
 - A [Heroku](https://www.heroku.com/) account with a project
 
-##To run the app locally:
+## To run the app locally:
 
 ```bash
 git clone https://github.com/pamelaszymaniec/expensify-app.git
